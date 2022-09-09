@@ -1,0 +1,6 @@
+* prepare slides with animated code
+* adjust existing repositories (AWS, OCI) to show examples with:
+  * validation for variable
+  * validation for lifecycle of resources 
+  * terratest
+* create new repository with test in kitchen-terraform: https://newcontext-oss.github.io/kitchen-terraform/tutorials/
