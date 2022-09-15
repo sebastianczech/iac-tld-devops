@@ -183,7 +183,6 @@
 
                             // when
                             terraform.InitAndApply(t, terraformOptions)
-                            fmt.Print("========================\nchecking terraform output\n========================\n")
                             subnet_cidr := terraform.Output(t, terraformOptions, "subnet_cidr")
                             vcn_cidr := terraform.Output(t, terraformOptions, "vcn_cidr")
 
@@ -202,6 +201,16 @@
                     <p class="fragment grow">code simplicity</p>
                     <!-- source: https://medium.com/swlh/tdd-vs-tld-and-what-is-the-minimum-code-coverage-needed-f380181d3400 -->
                 </section>
+
+                <section>
+					<h2>More about testing infrastructure</h2>
+					<ul>
+                        <li><a href="https://www.hashicorp.com/blog/testing-hashicorp-terraform">Testing HashiCorp Terraform</a></li>
+						<li><a href="https://www.hashicorp.com/resources/test-driven-development-tdd-for-infrastructure">Test-Driven Development (TDD) for Infrastructure</a></li>
+                        <li><a href="https://www.hashicorp.com/resources/testing-infrastructure-as-code-on-localhost">Testing Infrastructure as Code on Localhost</a></li>
+                        <li><a href="https://betterprogramming.pub/design-by-contracts-in-terraform-63467a749c1a">Design by Contract in Terraform</a></li>
+					</ul>
+				</section>
             </div>
         </div>
 
