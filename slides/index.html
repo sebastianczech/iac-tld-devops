@@ -16,7 +16,7 @@
 
         <link rel="stylesheet" href="dist/reset.css">
         <link rel="stylesheet" href="dist/reveal.css">
-        <link rel="stylesheet" href="dist/theme/black.css">
+        <link rel="stylesheet" href="dist/theme/solarized.css">
 
         <!-- Theme used for syntax highlighted code -->
         <link rel="stylesheet" href="plugin/highlight/monokai.css">
@@ -24,6 +24,21 @@
     <body>
         <div class="reveal">
             <div class="slides">
+                <section>
+                  <h3>Build infrastructure as a code using test-later development method</h3>
+                  <p>
+                    <small><a href="https://github.com/sebastianczech">Sebastian Czech</a></small><br />
+                    <small>October 2022</small>
+                  </p>
+                </section>
+
+                <section>
+                  <h2>Agenda</h2>
+                  <p class="fragment grow">Test pyramid</p>
+                  <p class="fragment grow">Test-later development (TLD) method</p>
+                  <p class="fragment grow">Testing infrastructure - examples and demo</p>
+                </section>
+
                 <section data-background="#ffffff">
                     <h2>Test pyramid</h2>
                     <figure>
@@ -32,6 +47,15 @@
                     </figure>
                 </section>
 
+                <section>
+                  <h2>TDD vs TLD</h2>
+                  <p class="fragment grow">development time</p>
+                  <p class="fragment grow">learning curve</p>
+                  <p class="fragment grow">increase productivity</p>
+                  <p class="fragment grow">code simplicity</p>
+                  <!-- source: https://medium.com/swlh/tdd-vs-tld-and-what-is-the-minimum-code-coverage-needed-f380181d3400 -->
+                </section>
+                
                 <section data-auto-animate>
                     <h2 data-id="code-title">Variables validation # 1</h2>
                     <pre data-id="code-animation"><code class="hljs" data-trim data-line-numbers>
@@ -94,8 +118,8 @@
                         default = []
                       }
                     </script></code></pre>
-                </section>                
-                
+                </section>
+
                 <section data-auto-animate>
                     <h2 data-id="code-title">Variables validation # 2</h2>
                     <pre data-id="code-animation"><code class="hljs" data-trim data-line-numbers="|5-6|"><script type="text/template">
@@ -194,23 +218,29 @@
                 </section>
 
                 <section>
-                    <h2>TDD vs TLD</h2>
-                    <p class="fragment grow">development time</p>
-                    <p class="fragment grow">learning curve</p>
-                    <p class="fragment grow">increase productivity</p>
-                    <p class="fragment grow">code simplicity</p>
-                    <!-- source: https://medium.com/swlh/tdd-vs-tld-and-what-is-the-minimum-code-coverage-needed-f380181d3400 -->
+                  <h2>More about testing infrastructure</h2>
+                  <ul>
+                      <li><a href="https://www.hashicorp.com/blog/testing-hashicorp-terraform">Testing HashiCorp Terraform</a></li>
+                      <li><a href="https://www.hashicorp.com/resources/test-driven-development-tdd-for-infrastructure">Test-Driven Development (TDD) for Infrastructure</a></li>
+                      <li><a href="https://www.hashicorp.com/resources/testing-infrastructure-as-code-on-localhost">Testing Infrastructure as Code on Localhost</a></li>
+                      <li><a href="https://betterprogramming.pub/design-by-contracts-in-terraform-63467a749c1a">Design by Contract in Terraform</a></li>
+                  </ul>
                 </section>
 
                 <section>
-					<h2>More about testing infrastructure</h2>
-					<ul>
-                        <li><a href="https://www.hashicorp.com/blog/testing-hashicorp-terraform">Testing HashiCorp Terraform</a></li>
-						<li><a href="https://www.hashicorp.com/resources/test-driven-development-tdd-for-infrastructure">Test-Driven Development (TDD) for Infrastructure</a></li>
-                        <li><a href="https://www.hashicorp.com/resources/testing-infrastructure-as-code-on-localhost">Testing Infrastructure as Code on Localhost</a></li>
-                        <li><a href="https://betterprogramming.pub/design-by-contracts-in-terraform-63467a749c1a">Design by Contract in Terraform</a></li>
-					</ul>
-				</section>
+                  <h2>Presentation and code</h2>
+                  <ul>
+                      <li><a href="https://github.com/sebastianczech/iac-tld-devops">https://github.com/sebastianczech/iac-tld-devops</a></li>
+                      <li><a href="https://github.com/sebastianczech/k8s-oci">https://github.com/sebastianczech/k8s-oci</a></li>
+                      <li><a href="https://github.com/sebastianczech/k8s-oci-tf-cloud">https://github.com/sebastianczech/k8s-oci-tf-cloud</a></li>
+                      <li><a href="https://registry.terraform.io/namespaces/sebastianczech">https://registry.terraform.io/namespaces/sebastianczech</a></li>
+                  </ul>
+                </section>
+
+                <section>
+                  <h1>Thank you</h1>
+                  <h2>for your attention</h2>
+                </section>
             </div>
         </div>
 
