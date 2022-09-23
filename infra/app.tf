@@ -22,8 +22,12 @@ data "oci_core_images" "oci_ubuntu_images" {
 }
 
 locals {
-  instance_image    = data.oci_core_images.oci_ubuntu_images.images[0].id
-  instance_firmware = data.oci_core_images.oci_ubuntu_images.images[0].launch_options[0].firmware
+  instance_image     = data.oci_core_images.oci_ubuntu_images.images[0].id
+  instance_firmware  = data.oci_core_images.oci_ubuntu_images.images[0].launch_options[0].firmware
+  # change date and time into RFC 3339 ("YYYY-MM-DD'T'hh:mm:ssZ") e.g.:
+  # from "2022-08-26 03:12:14.276 +0000 UTC"
+  # to "2022-08-26T03:12:14Z"
+  image_time_created = "${split(".", replace(replace(data.oci_core_images.oci_ubuntu_images.images[0].time_created, " ", "T"), "T+0000TUTC", ""))[0]}Z"
 }
 
 resource "oci_core_instance" "vm_public_api" {
@@ -52,6 +56,10 @@ resource "oci_core_instance" "vm_public_api" {
     precondition {
       condition     = local.instance_firmware == "UEFI_64"
       error_message = "Use firmware compatible with 64 bit operating systems"
+    }
+    precondition {
+      condition     = timecmp(local.image_time_created, timeadd(timestamp(), "-720h")) > 0
+      error_message = "VM image is older than 30 days"
     }
   }
 }
