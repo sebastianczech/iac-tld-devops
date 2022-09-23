@@ -1,6 +1,10 @@
-- [ ] prepare slides with animated code
-- [ ] adjust existing repositories (AWS, OCI) to show examples with:
-  - [ ] validation for variable
-  - [ ] validation for lifecycle of resources 
-  - [ ] terratest
-- [ ] create new repository with test in kitchen-terraform: https://newcontext-oss.github.io/kitchen-terraform/tutorials/
+- [x] prepare slides with animated code
+- [x] prepare new code to show examples with:
+  - [x] validation for variable
+  - [x] validation for lifecycle of resources 
+- [ ] prepare architecture diagram
+- [ ] prepare notes (speach)
+- [ ] prepare integration and e2e tests using terratest: https://terratest.gruntwork.io/examples/
+- [ ] show optionals in terraform 1.3: https://www.hashicorp.com/blog/terraform-1-3-improves-extensibility-and-maintainability-of-terraform-modules
+- [ ] prepare example of test in kitchen-terraform: https://newcontext-oss.github.io/kitchen-terraform/tutorials/
+- [ ] check terragrunt: https://terragrunt.gruntwork.io/docs/getting-started/quick-start/
