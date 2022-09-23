@@ -3,9 +3,9 @@
   - [x] validation for variable
   - [x] validation for lifecycle of resources 
 - [ ] split code into modules
-- [ ] prepare architecture diagram
-- [ ] prepare notes (speach)
 - [ ] prepare integration and e2e tests using terratest: https://terratest.gruntwork.io/examples/
 - [ ] show optionals in terraform 1.3: https://www.hashicorp.com/blog/terraform-1-3-improves-extensibility-and-maintainability-of-terraform-modules
+- [ ] prepare architecture diagram
+- [ ] prepare notes (speach)
 - [ ] prepare example of test in kitchen-terraform: https://newcontext-oss.github.io/kitchen-terraform/tutorials/
 - [ ] check terragrunt: https://terragrunt.gruntwork.io/docs/getting-started/quick-start/
