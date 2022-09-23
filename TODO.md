@@ -2,6 +2,7 @@
 - [x] prepare new code to show examples with:
   - [x] validation for variable
   - [x] validation for lifecycle of resources 
+- [ ] split code into modules
 - [ ] prepare architecture diagram
 - [ ] prepare notes (speach)
 - [ ] prepare integration and e2e tests using terratest: https://terratest.gruntwork.io/examples/
