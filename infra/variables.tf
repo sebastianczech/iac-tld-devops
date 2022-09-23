@@ -33,6 +33,6 @@ variable "vcn_cidr_block" {
   type        = string
   validation {
     condition     = can(cidrnetmask(var.vcn_cidr_block))
-    error_message = "CIDR block for VCN must be a valid IPv4 CIDR"
+    error_message = "Invalid IPv4 CIDR block for VCN"
   }
 }
