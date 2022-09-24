@@ -9,7 +9,7 @@ import (
 	"github.com/stretchr/testify/assert"
 )
 
-func TestOutputFromModuleNetwork(t *testing.T) {
+func TestOutputAfterInfraDeployment(t *testing.T) {
 	// given
 	retryableTerraformErrors := map[string]string{
 		// `terraform init` frequently fails in CI due to network issues accessing plugins. The reason is unknown, but
