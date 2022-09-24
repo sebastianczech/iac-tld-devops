@@ -22,8 +22,8 @@ data "oci_core_images" "oci_ubuntu_images" {
 }
 
 locals {
-  instance_image     = data.oci_core_images.oci_ubuntu_images.images[0].id
-  instance_firmware  = data.oci_core_images.oci_ubuntu_images.images[0].launch_options[0].firmware
+  instance_image    = data.oci_core_images.oci_ubuntu_images.images[0].id
+  instance_firmware = data.oci_core_images.oci_ubuntu_images.images[0].launch_options[0].firmware
   # change date and time into RFC 3339 ("YYYY-MM-DD'T'hh:mm:ssZ") e.g.:
   # from "2022-08-26 03:12:14.276 +0000 UTC"
   # to "2022-08-26T03:12:14Z"
@@ -41,7 +41,7 @@ resource "oci_core_instance" "vm_public_api" {
   display_name = "vm-public-api"
   create_vnic_details {
     assign_public_ip = true
-    subnet_id        = oci_core_subnet.subnet_demo_public.id
+    subnet_id        = var.subnet_demo_public_id
   }
   metadata = {
     ssh_authorized_keys = var.vm_id_rsa_pub
