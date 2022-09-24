@@ -3,6 +3,24 @@ variable "compartment_id" {
   type        = string
 }
 
+variable "vcn_name" {
+  description = "Name of VCN"
+  type        = string
+  default     = "vcn-demo"
+}
+
+variable "subnet_private_name" {
+  description = "Name of private subnet"
+  type        = string
+  default     = "subnet-demo-private"
+}
+
+variable "subnet_public_name" {
+  description = "Name of public subnet"
+  type        = string
+  default     = "subnet-demo-public"
+}
+
 variable "vcn_cidr_block" {
   description = "CIDR block for VCN"
   type        = string
