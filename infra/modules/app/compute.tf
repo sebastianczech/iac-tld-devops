@@ -58,8 +58,8 @@ resource "oci_core_instance" "vm_public_api" {
       error_message = "Use firmware compatible with 64 bit operating systems"
     }
     precondition {
-      condition     = timecmp(local.image_time_created, timeadd(timestamp(), "-720h")) > 0
-      error_message = "VM image is older than 30 days"
+      condition     = timecmp(local.image_time_created, timeadd(timestamp(), "-1440h")) > 0
+      error_message = "VM image is older than 60 days"
     }
   }
 }
