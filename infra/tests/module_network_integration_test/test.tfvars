@@ -1,7 +1,7 @@
 # auth in OCI using command: oci session authenticate --region eu-frankfurt-1 --profile-name iac-tld-devops-tests
-profile_name              = "iac-tld-devops-tests"
-region                    = "eu-frankfurt-1"
-compartment_id            = "ocid1.tenancy.oc1..aaaaaaaa3ndexo3zj4fd6bvpkqj3kswt37tfan3rsdoc4oygs3stknazkgoq"
+profile_name   = "iac-tld-devops-tests"
+region         = "eu-frankfurt-1"
+compartment_id = "ocid1.tenancy.oc1..aaaaaaaa3ndexo3zj4fd6bvpkqj3kswt37tfan3rsdoc4oygs3stknazkgoq"
 
 egress_security_rules = [
   {

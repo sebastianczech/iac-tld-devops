@@ -12,7 +12,3 @@ module "network" {
   subnet_private_name = "subnet-test-private"
   subnet_public_name  = "subnet-test-public"
 }
-
-output "subnet_demo_public_id" {
-  value = module.network.subnet_demo_public_id
-}
