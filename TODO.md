@@ -1,3 +1,5 @@
+# ToDo
+
 - [x] prepare slides with animated code
 - [x] prepare new code to show examples with:
   - [x] validation for variable
@@ -10,5 +12,10 @@
 - [ ] prepare branches for each step
 - [ ] prepare architecture diagram
 - [ ] prepare notes (speach)
+
+# More ideas
+
 - [ ] prepare example of test in kitchen-terraform: https://newcontext-oss.github.io/kitchen-terraform/tutorials/
 - [ ] check terragrunt: https://terragrunt.gruntwork.io/docs/getting-started/quick-start/
+- [ ] prepare example of test in conftest: https://www.conftest.dev/
+- [ ] prepare example of integrate test using localstack: https://localstack.cloud/
