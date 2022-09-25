@@ -1,7 +1,5 @@
 module "network" {
-  # Problem with dependant module resolution if the path is relative: https://github.com/hashicorp/terraform/issues/23333
-  source = "github.com/sebastianczech/iac-tld-devops//infra/modules/network"
-  # source = "./../../modules/network"
+  source = "./../../modules/network"
 
   compartment_id            = var.compartment_id
   vcn_cidr_block            = var.vcn_cidr_block

@@ -1,12 +1,4 @@
 terraform {
-  cloud {
-    organization = "sebastianczech"
-
-    workspaces {
-      name = "iac-tld-devops-tests"
-    }
-  }
-
   required_providers {
     oci = {
       source  = "hashicorp/oci"

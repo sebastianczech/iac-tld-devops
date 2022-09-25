@@ -6,8 +6,8 @@
 - [x] prepare integration and e2e tests using terratest: https://terratest.gruntwork.io/examples/
 - [ ] adjust/extend e2e and integration tests
 - [ ] show optionals in terraform 1.3: https://www.hashicorp.com/blog/terraform-1-3-improves-extensibility-and-maintainability-of-terraform-modules
-- [ ] prepare branches for each step
 - [ ] prepare architecture diagram
+- [ ] prepare branches for each step
 - [ ] prepare notes (speach)
 - [ ] prepare example of test in kitchen-terraform: https://newcontext-oss.github.io/kitchen-terraform/tutorials/
 - [ ] check terragrunt: https://terragrunt.gruntwork.io/docs/getting-started/quick-start/
