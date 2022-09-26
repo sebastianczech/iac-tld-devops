@@ -48,6 +48,16 @@ variable "subnet_public_cidr_block" {
   }
 }
 
+variable "route_rules" {
+  description = "Routes to put in main route table in VCN"
+  type = map(object({
+    a = string                # a required attribute
+    b = optional(string)      # an optional attribute
+    c = optional(number, 127) # an optional attribute with default value
+  })
+}
+
+
 variable "egress_security_rules" {
   type    = list(map(string))
   default = []
