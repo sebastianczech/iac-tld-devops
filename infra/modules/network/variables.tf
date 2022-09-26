@@ -54,6 +54,10 @@ variable "route_rules" {
     target      = string
     destination = string
   }))
+  validation {
+    condition     = (length(var.route_rules) > 0 && anytrue([for name, route_rule in var.route_rules : route_rule.destination == "0.0.0.0/0"]))
+    error_message = "At least 1 rule should be defined for 0.0.0.0/0 destination"
+  }
 }
 
 variable "egress_security_rules" {
