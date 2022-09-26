@@ -7,7 +7,7 @@
 - [x] split code into modules
 - [x] prepare integration and e2e tests using terratest: https://terratest.gruntwork.io/examples/
 - [x] adjust/extend e2e and integration tests
-- [ ] extend network module and prepare additional test for routes
+- [x] extend network module and prepare additional test for routes
 - [ ] show optionals in terraform 1.3: https://www.hashicorp.com/blog/terraform-1-3-improves-extensibility-and-maintainability-of-terraform-modules
 - [ ] prepare branches for each step
 - [ ] prepare architecture diagram
