@@ -54,6 +54,14 @@ variable "subnet_public_cidr_block" {
   type        = string
 }
 
+variable "route_rules" {
+  type = map(object({
+    target      = string
+    destination = string
+  }))
+  default = {}
+}
+
 variable "egress_security_rules" {
   type    = list(map(string))
   default = []
