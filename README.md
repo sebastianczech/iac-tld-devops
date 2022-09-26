@@ -23,15 +23,16 @@ TODO
 1. Install prerequisites on local machine:
    1. [Terraform](https://learn.hashicorp.com/tutorials/terraform/install-cli)
    1. [OCI](https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/cliinstall.htm)
-1. Clone repository:
+   2. [Go](https://go.dev/doc/install)
+2. Clone repository:
    1. ``git clone https://github.com/sebastianczech/iac-tld-devops``
-   1. ``cd iac-tld-devops``
-1. Configure workspace and variables values in Terraform Cloud
-1. Provision infrastructure:
+   2. ``cd iac-tld-devops``
+3. Configure workspace and variables values in Terraform Cloud
+4. Provision infrastructure:
    1. ``cd infra``
-   1. ``terraform plan``
-   1. ``terraform apply -auto-approve``
-1. Execute tests:
+   2. ``terraform plan``
+   3. ``terraform apply -auto-approve``
+5. Execute tests:
    1. ``cd tests``
-   1. ``make auth``
-   1. ``make test``
+   2. ``make auth``
+   3. ``make test``
