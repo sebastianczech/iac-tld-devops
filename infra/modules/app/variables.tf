@@ -8,6 +8,11 @@ variable "subnet_demo_public_id" {
   type        = string
 }
 
+variable "subnet_demo_private_id" {
+  description = "ID of private subnet in VCN demo"
+  type        = string
+}
+
 variable "vm_id_rsa_pub" {
   description = "SSH public key"
   type        = string

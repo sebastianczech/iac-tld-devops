@@ -13,8 +13,9 @@ module "network" {
 module "app" {
   source = "./modules/app"
 
-  compartment_id        = var.compartment_id
-  subnet_demo_public_id = module.network.subnet_demo_public_id
-  vm_id_rsa_pub         = var.vm_id_rsa_pub
-  vm_instance_shape     = var.vm_instance_shape
+  compartment_id         = var.compartment_id
+  subnet_demo_public_id  = module.network.subnet_demo_public_id
+  subnet_demo_private_id = module.network.subnet_demo_private_id
+  vm_id_rsa_pub          = var.vm_id_rsa_pub
+  vm_instance_shape      = var.vm_instance_shape
 }

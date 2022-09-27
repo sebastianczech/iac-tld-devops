@@ -13,6 +13,7 @@
 - [ ] prepare branches for each step
 - [ ] prepare notes (speach)
 - [ ] finish presentation (e.g. include more pictures, include code after each demo, include table with types of tests and tools to use)
+- [ ] create more complex infrastructure
 
 # More ideas
 
