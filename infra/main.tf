@@ -15,7 +15,7 @@ module "vm_public_api" {
 
   compartment_id    = var.compartment_id
   subnet_id         = module.network_demo.subnet_demo_public_id
-  vm_name           = "public_api"
+  vm_name           = "vm-public-api"
   public_resource   = true
   vm_id_rsa_pub     = var.vm_id_rsa_pub
   vm_instance_shape = var.vm_instance_shape
@@ -26,7 +26,7 @@ module "vm_private_db" {
 
   compartment_id    = var.compartment_id
   subnet_id         = module.network_demo.subnet_demo_private_id
-  vm_name           = "private_api"
+  vm_name           = "vm-private-db"
   public_resource   = false
   vm_instance_shape = var.vm_instance_shape
 }
