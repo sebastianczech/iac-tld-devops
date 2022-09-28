@@ -3,19 +3,26 @@ variable "compartment_id" {
   type        = string
 }
 
-variable "subnet_demo_public_id" {
-  description = "ID of public subnet in VCN demo"
+variable "subnet_id" {
+  description = "ID of subnet in VCN"
   type        = string
 }
 
-variable "subnet_demo_private_id" {
-  description = "ID of private subnet in VCN demo"
+variable "vm_name" {
+  description = "Name of VM"
   type        = string
+}
+
+variable "public_resource" {
+  description = "True if resource are public"
+  default     = false
+  type        = bool
 }
 
 variable "vm_id_rsa_pub" {
   description = "SSH public key"
   type        = string
+  default     = null
 }
 
 variable "vm_instance_shape" {
