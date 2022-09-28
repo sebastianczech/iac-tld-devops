@@ -1,4 +1,4 @@
-module "network" {
+module "network_demo" {
   source = "./modules/network"
 
   compartment_id            = var.compartment_id
@@ -10,12 +10,23 @@ module "network" {
   ingress_security_rules    = var.ingress_security_rules
 }
 
-module "app" {
-  source = "./modules/app"
+module "vm_public_api" {
+  source = "./modules/vm"
 
-  compartment_id         = var.compartment_id
-  subnet_demo_public_id  = module.network.subnet_demo_public_id
-  subnet_demo_private_id = module.network.subnet_demo_private_id
-  vm_id_rsa_pub          = var.vm_id_rsa_pub
-  vm_instance_shape      = var.vm_instance_shape
+  compartment_id    = var.compartment_id
+  subnet_id         = module.network_demo.subnet_demo_public_id
+  vm_name           = "public_api"
+  public_resource   = true
+  vm_id_rsa_pub     = var.vm_id_rsa_pub
+  vm_instance_shape = var.vm_instance_shape
+}
+
+module "vm_private_db" {
+  source = "./modules/vm"
+
+  compartment_id    = var.compartment_id
+  subnet_id         = module.network_demo.subnet_demo_private_id
+  vm_name           = "private_api"
+  public_resource   = false
+  vm_instance_shape = var.vm_instance_shape
 }
