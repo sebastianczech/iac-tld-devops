@@ -9,14 +9,20 @@
 - [x] adjust/extend e2e and integration tests
 - [x] extend network module and prepare additional test for routes
 - [x] prepare architecture diagram
-- [ ] show optionals in terraform 1.3: https://www.hashicorp.com/blog/terraform-1-3-improves-extensibility-and-maintainability-of-terraform-modules
+- [ ] create more complex infrastructure
+  - [x] new diagram
+  - [x] seperate modules for app and db
+  - [ ] extend module for network
+  - [ ] create vm private api
+  - [ ] create dynamic routing gateway
+  - [ ] adjust tests
 - [ ] prepare branches for each step
 - [ ] prepare notes (speach)
 - [ ] finish presentation (e.g. include more pictures, include code after each demo, include table with types of tests and tools to use)
-- [ ] create more complex infrastructure
 
 # More ideas
 
+- [ ] show optionals in terraform 1.3: https://www.hashicorp.com/blog/terraform-1-3-improves-extensibility-and-maintainability-of-terraform-modules
 - [ ] prepare example of test in kitchen-terraform: https://newcontext-oss.github.io/kitchen-terraform/tutorials/
 - [ ] check terragrunt: https://terragrunt.gruntwork.io/docs/getting-started/quick-start/
 - [ ] prepare example of test in conftest: https://www.conftest.dev/
