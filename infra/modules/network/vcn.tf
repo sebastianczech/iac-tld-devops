@@ -9,7 +9,7 @@ resource "oci_core_subnet" "subnet_private" {
   cidr_block     = var.subnet_private_cidr_block
   compartment_id = var.compartment_id
   vcn_id         = oci_core_vcn.vcn.id
-  display_name   = var.subnet_private_name
+  display_name   = "${var.vcn_name}-subnet-private"
 }
 
 resource "oci_core_subnet" "subnet_public" {
@@ -17,5 +17,5 @@ resource "oci_core_subnet" "subnet_public" {
   cidr_block     = var.subnet_public_cidr_block
   compartment_id = var.compartment_id
   vcn_id         = oci_core_vcn.vcn.id
-  display_name   = var.subnet_public_name
+  display_name   = "${var.vcn_name}-subnet-public"
 }

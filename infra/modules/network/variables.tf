@@ -8,18 +8,6 @@ variable "vcn_name" {
   type        = string
 }
 
-variable "subnet_private_name" {
-  description = "Name of private subnet"
-  type        = string
-  default     = null
-}
-
-variable "subnet_public_name" {
-  description = "Name of public subnet"
-  type        = string
-  default     = null
-}
-
 variable "vcn_cidr_block" {
   description = "CIDR block for VCN"
   type        = string
