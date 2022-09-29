@@ -13,6 +13,11 @@ variable "profile_name" {
   type        = string
 }
 
+variable "vcn_name" {
+  description = "Name of VCN"
+  type        = string
+}
+
 variable "vcn_cidr_block" {
   description = "CIDR block for VCN"
   type        = string

@@ -29,10 +29,10 @@ func TestOutputFromModuleNetwork(t *testing.T) {
 
 	// when
 	terraform.InitAndApply(t, terraformOptions)
-	subnetDemoPublicId := terraform.Output(t, terraformOptions, "subnet_demo_public_id")
+	subnetPublicId := terraform.Output(t, terraformOptions, "subnet_public_id")
 
 	// then
-	assert.NotEmpty(t, subnetDemoPublicId)
+	assert.NotEmpty(t, subnetPublicId)
 }
 
 func TestErrorWhileProvidingWrongCidrIpAddressForSubnet(t *testing.T) {

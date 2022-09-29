@@ -3,6 +3,8 @@ profile_name   = "iac-tld-devops-tests"
 region         = "eu-frankfurt-1"
 compartment_id = "ocid1.tenancy.oc1..aaaaaaaa3ndexo3zj4fd6bvpkqj3kswt37tfan3rsdoc4oygs3stknazkgoq"
 
+vcn_name = "vcn-test"
+
 route_rules = {
   "default" = {
     destination = "0.0.0.0/0"
