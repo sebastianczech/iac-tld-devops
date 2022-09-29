@@ -1,7 +1,7 @@
-resource "oci_core_default_security_list" "vcn_demo_security_list" {
-  manage_default_resource_id = oci_core_vcn.vcn_demo.default_security_list_id
+resource "oci_core_default_security_list" "vcn_security_list" {
+  manage_default_resource_id = oci_core_vcn.vcn.default_security_list_id
   compartment_id             = var.compartment_id
-  display_name               = "vcn-demo-security-list"
+  display_name               = "${var.vcn_name}-security-list"
   dynamic "egress_security_rules" {
     for_each = var.egress_security_rules
     iterator = security_rule
@@ -48,6 +48,6 @@ resource "oci_core_default_security_list" "vcn_demo_security_list" {
     protocol    = "all"
     source      = var.vcn_cidr_block
     source_type = "CIDR_BLOCK"
-    description = "Allow demo VCN for all protocols"
+    description = "Allow VCN for all protocols"
   }
 }

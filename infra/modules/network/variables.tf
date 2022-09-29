@@ -6,19 +6,18 @@ variable "compartment_id" {
 variable "vcn_name" {
   description = "Name of VCN"
   type        = string
-  default     = "vcn-demo"
 }
 
 variable "subnet_private_name" {
   description = "Name of private subnet"
   type        = string
-  default     = "subnet-demo-private"
+  default     = null
 }
 
 variable "subnet_public_name" {
   description = "Name of public subnet"
   type        = string
-  default     = "subnet-demo-public"
+  default     = null
 }
 
 variable "vcn_cidr_block" {
@@ -33,8 +32,9 @@ variable "vcn_cidr_block" {
 variable "subnet_private_cidr_block" {
   description = "CIDR block for private subnet"
   type        = string
+  default     = null
   validation {
-    condition     = can(cidrnetmask(var.subnet_private_cidr_block))
+    condition     = can(cidrnetmask(var.subnet_private_cidr_block)) || var.subnet_private_cidr_block == null
     error_message = "Invalid IPv4 CIDR block for subnet private"
   }
 }
@@ -42,8 +42,9 @@ variable "subnet_private_cidr_block" {
 variable "subnet_public_cidr_block" {
   description = "CIDR block for public subnet"
   type        = string
+  default     = null
   validation {
-    condition     = can(cidrnetmask(var.subnet_public_cidr_block))
+    condition     = can(cidrnetmask(var.subnet_public_cidr_block)) || var.subnet_public_cidr_block == null
     error_message = "Invalid IPv4 CIDR block for subnet public"
   }
 }
