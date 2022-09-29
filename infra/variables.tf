@@ -1,3 +1,5 @@
+# OCI settings
+
 variable "tenancy_ocid" {
   description = "Tenancy OCID"
   type        = string
@@ -28,6 +30,8 @@ variable "region" {
   type        = string
 }
 
+# VM settings
+
 variable "vm_id_rsa_pub" {
   description = "SSH public key"
   type        = string
@@ -39,22 +43,59 @@ variable "vm_instance_shape" {
   default     = "VM.Standard.A1.Flex"
 }
 
-variable "vcn_cidr_block" {
-  description = "CIDR block for VCN"
+variable "vm_private_api" {
+  description = "Name of private API"
   type        = string
 }
 
-variable "subnet_private_cidr_block" {
-  description = "CIDR block for private subnet"
+variable "vm_private_db" {
+  description = "Name of private DB"
   type        = string
 }
 
-variable "subnet_public_cidr_block" {
-  description = "CIDR block for public subnet"
+variable "vm_public_api" {
+  description = "Name of public API"
   type        = string
 }
 
-variable "route_rules" {
+# Network settings
+
+variable "vcn_name_demo" {
+  description = "Name of VCN for demo"
+  type        = string
+}
+
+variable "vcn_name_internal" {
+  description = "Name of VCN for internal services"
+  type        = string
+}
+
+variable "vcn_cidr_block_demo" {
+  description = "CIDR block for VCN demo"
+  type        = string
+}
+
+variable "vcn_cidr_block_internal" {
+  description = "CIDR block for VCN internal"
+  type        = string
+}
+
+variable "subnet_private_cidr_block_demo" {
+  description = "CIDR block for private subnet in VCN demo"
+  type        = string
+}
+
+variable "subnet_public_cidr_block_demo" {
+  description = "CIDR block for public subnet in VCN demo"
+  type        = string
+}
+
+variable "subnet_private_cidr_block_internal" {
+  description = "CIDR block for private subnet in VCN internal"
+  type        = string
+}
+
+variable "route_rules_demo" {
   type = map(object({
     target      = string
     destination = string
@@ -62,12 +103,30 @@ variable "route_rules" {
   default = {}
 }
 
-variable "egress_security_rules" {
+variable "egress_security_rules_demo" {
   type    = list(map(string))
   default = []
 }
 
-variable "ingress_security_rules" {
+variable "ingress_security_rules_demo" {
+  type    = list(map(string))
+  default = []
+}
+
+variable "route_rules_internal" {
+  type = map(object({
+    target      = string
+    destination = string
+  }))
+  default = {}
+}
+
+variable "egress_security_rules_internal" {
+  type    = list(map(string))
+  default = []
+}
+
+variable "ingress_security_rules_internal" {
   type    = list(map(string))
   default = []
 }
