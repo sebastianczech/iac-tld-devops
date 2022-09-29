@@ -14,8 +14,8 @@
   - [x] seperate modules for app and db
   - [x] extend module for network
   - [x] create vm private api
-  - [ ] create dynamic routing gateway
   - [x] adjust tests
+  - [ ] create dynamic routing gateway
 - [ ] prepare branches for each step
 - [ ] prepare notes (speach)
 - [ ] finish presentation (e.g. include more pictures, include code after each demo, include table with types of tests and tools to use)
