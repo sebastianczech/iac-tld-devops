@@ -9,17 +9,16 @@
 - [x] adjust/extend e2e and integration tests
 - [x] extend network module and prepare additional test for routes
 - [x] prepare architecture diagram
-- [ ] create more complex infrastructure
+- [x] create more complex infrastructure
   - [x] new diagram
   - [x] seperate modules for app and db
   - [x] extend module for network
   - [x] create vm private api
   - [x] adjust tests
   - [x] create dynamic routing gateway
-  - [ ] create new module security
-  - [ ] introduce variables as objects, where network contains subnets, routers, rules etc.
-- [ ] prepare branches for each step
+- [ ] introduce variables as objects, where network contains subnets, routers, rules etc.
 - [ ] prepare notes (speach)
+- [ ] prepare branches for each step
 - [ ] finish presentation (e.g. include more pictures, include code after each demo, include table with types of tests and tools to use)
 
 # More ideas
