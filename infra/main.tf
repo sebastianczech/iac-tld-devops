@@ -30,11 +30,19 @@ module "router" {
   networks = {
     "demo" : {
       "id" : module.network_demo.vcn_id,
-      "cidr_block" : var.vcn_cidr_block_demo
+      "vcn_name" : var.vcn_name_demo,
+      "public_subnet" : var.subnet_public_cidr_block_demo != null,
+      "route_rules" : var.route_rules_demo,
+      "cidr_block" : var.vcn_cidr_block_demo,
+      "route_table" : module.network_demo.route_table_id
     },
     "internal" : {
       "id" : module.network_internal.vcn_id,
-      "cidr_block" : var.vcn_cidr_block_internal
+      "vcn_name" : var.vcn_name_internal,
+      "public_subnet" : false,
+      "route_rules" : var.route_rules_internal,
+      "cidr_block" : var.vcn_cidr_block_internal,
+      "route_table" : module.network_internal.route_table_id
     }
   }
 }

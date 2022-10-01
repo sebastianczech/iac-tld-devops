@@ -15,7 +15,9 @@
   - [x] extend module for network
   - [x] create vm private api
   - [x] adjust tests
-  - [ ] create dynamic routing gateway
+  - [x] create dynamic routing gateway
+  - [ ] create new module security
+  - [ ] introduce variables as objects, where network contains subnets, routers, rules etc.
 - [ ] prepare branches for each step
 - [ ] prepare notes (speach)
 - [ ] finish presentation (e.g. include more pictures, include code after each demo, include table with types of tests and tools to use)
@@ -23,7 +25,6 @@
 # More ideas
 
 - [ ] show optionals in terraform 1.3: https://www.hashicorp.com/blog/terraform-1-3-improves-extensibility-and-maintainability-of-terraform-modules
-- [ ] introduce variables as objects, where network contains subnets, routers, rules etc.
 - [ ] as a test use checking if SSH port is opened: https://github.com/gruntwork-io/terratest/blob/master/test/terraform_ssh_password_example_test.go
 - [ ] prepare example of test in kitchen-terraform: https://newcontext-oss.github.io/kitchen-terraform/tutorials/
 - [ ] check terragrunt: https://terragrunt.gruntwork.io/docs/getting-started/quick-start/

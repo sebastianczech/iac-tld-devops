@@ -9,3 +9,7 @@ output "subnet_private_id" {
 output "vcn_id" {
   value = oci_core_vcn.vcn.id
 }
+
+output "route_table_id" {
+  value = oci_core_vcn.vcn.default_route_table_id
+}

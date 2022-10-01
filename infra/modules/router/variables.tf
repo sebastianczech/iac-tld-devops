@@ -6,7 +6,14 @@ variable "compartment_id" {
 variable "networks" {
   description = "VCNs details"
   type = map(object({
-    id         = string
-    cidr_block = string
+    id            = string
+    vcn_name      = string
+    public_subnet = bool
+    cidr_block    = string
+    route_table   = string
+    route_rules = map(object({
+      target      = string
+      destination = string
+    }))
   }))
 }
