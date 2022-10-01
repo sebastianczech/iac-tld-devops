@@ -6,7 +6,6 @@ module "network_demo" {
   vcn_cidr_block            = var.vcn_cidr_block_demo
   subnet_private_cidr_block = var.subnet_private_cidr_block_demo
   subnet_public_cidr_block  = var.subnet_public_cidr_block_demo
-  route_rules               = var.route_rules_demo
   egress_security_rules     = var.egress_security_rules_demo
   ingress_security_rules    = var.ingress_security_rules_demo
 }
@@ -18,7 +17,6 @@ module "network_internal" {
   vcn_name                  = var.vcn_name_internal
   vcn_cidr_block            = var.vcn_cidr_block_internal
   subnet_private_cidr_block = var.subnet_private_cidr_block_internal
-  route_rules               = var.route_rules_internal
   egress_security_rules     = var.egress_security_rules_internal
   ingress_security_rules    = var.ingress_security_rules_internal
 }

@@ -37,18 +37,6 @@ variable "subnet_public_cidr_block" {
   }
 }
 
-variable "route_rules" {
-  description = "Routes to put in main route table in VCN"
-  type = map(object({
-    target      = string
-    destination = string
-  }))
-  validation {
-    condition     = (length(var.route_rules) > 0 && anytrue([for name, route_rule in var.route_rules : route_rule.destination == "0.0.0.0/0"]))
-    error_message = "At least 1 rule should be defined for 0.0.0.0/0 destination"
-  }
-}
-
 variable "egress_security_rules" {
   type    = list(map(string))
   default = []
