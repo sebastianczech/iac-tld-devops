@@ -5,3 +5,7 @@ output "subnet_public_id" {
 output "subnet_private_id" {
   value = try(oci_core_subnet.subnet_private[0].id, null)
 }
+
+output "vcn_id" {
+  value = oci_core_vcn.vcn.id
+}

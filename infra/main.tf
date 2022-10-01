@@ -23,6 +23,22 @@ module "network_internal" {
   ingress_security_rules    = var.ingress_security_rules_internal
 }
 
+module "router" {
+  source = "./modules/router"
+
+  compartment_id = var.compartment_id
+  networks = {
+    "demo" : {
+      "id" : module.network_demo.vcn_id,
+      "cidr_block" : var.vcn_cidr_block_demo
+    },
+    "internal" : {
+      "id" : module.network_internal.vcn_id,
+      "cidr_block" : var.vcn_cidr_block_internal
+    }
+  }
+}
+
 module "vm_public_api" {
   source = "./modules/vm"
 
