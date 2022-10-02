@@ -4,7 +4,7 @@ variable "compartment_id" {
 }
 
 variable "networks" {
-  description = "VCNs details"
+  description = "Networks details"
   type = map(object({
     vcn_name                  = string
     vcn_cidr_block            = string

@@ -1,7 +1,7 @@
 module "network" {
   source = "./../../modules/network"
 
-  compartment_id            = var.compartment_id
+  compartment_id = var.compartment_id
   networks = {
     "test" : {
       vcn_name : var.vcn_name,

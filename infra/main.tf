@@ -46,35 +46,31 @@ module "router" {
   }
 }
 
-module "vm_public_api" {
+module "vm" {
   source = "./modules/vm"
 
-  compartment_id    = var.compartment_id
-  subnet_id         = module.network.subnet_public_id["demo"]
-  vm_name           = var.vm_public_api
-  public_resource   = true
-  vm_id_rsa_pub     = var.vm_id_rsa_pub
-  vm_instance_shape = var.vm_instance_shape
-}
-
-module "vm_private_db" {
-  source = "./modules/vm"
-
-  compartment_id    = var.compartment_id
-  subnet_id         = module.network.subnet_private_id["demo"]
-  vm_name           = var.vm_private_db
-  public_resource   = false
-  vm_id_rsa_pub     = var.vm_id_rsa_pub
-  vm_instance_shape = var.vm_instance_shape
-}
-
-module "vm_private_api" {
-  source = "./modules/vm"
-
-  compartment_id    = var.compartment_id
-  subnet_id         = module.network.subnet_private_id["internal"]
-  vm_name           = var.vm_private_api
-  public_resource   = false
-  vm_id_rsa_pub     = var.vm_id_rsa_pub
-  vm_instance_shape = var.vm_instance_shape
+  compartment_id = var.compartment_id
+  vms = {
+    "public_api" : {
+      vm_name           = var.vm_public_api
+      vm_instance_shape = var.vm_instance_shape
+      vm_id_rsa_pub     = var.vm_id_rsa_pub
+      public_resource   = true
+      subnet_id         = module.network.subnet_public_id["demo"]
+    },
+    "private_db" : {
+      vm_name           = var.vm_private_db
+      vm_instance_shape = var.vm_instance_shape
+      vm_id_rsa_pub     = var.vm_id_rsa_pub
+      public_resource   = false
+      subnet_id         = module.network.subnet_private_id["demo"]
+    },
+    "private_api" : {
+      vm_name           = var.vm_private_api
+      vm_instance_shape = var.vm_instance_shape
+      vm_id_rsa_pub     = var.vm_id_rsa_pub
+      public_resource   = false
+      subnet_id         = module.network.subnet_private_id["internal"]
+    }
+  }
 }

@@ -31,20 +31,21 @@ locals {
 }
 
 resource "oci_core_instance" "vm" {
+  for_each            = var.vms
   availability_domain = data.oci_identity_availability_domains.ads.availability_domains[0].name
   compartment_id      = var.compartment_id
-  shape               = var.vm_instance_shape
+  shape               = each.value.vm_instance_shape
   source_details {
     source_id   = local.instance_image
     source_type = "image"
   }
-  display_name = var.vm_name
+  display_name = each.value.vm_name
   create_vnic_details {
-    assign_public_ip = var.public_resource
-    subnet_id        = var.subnet_id
+    assign_public_ip = each.value.public_resource
+    subnet_id        = each.value.subnet_id
   }
   metadata = {
-    ssh_authorized_keys = var.vm_id_rsa_pub
+    ssh_authorized_keys = each.value.vm_id_rsa_pub
   }
   shape_config {
     baseline_ocpu_utilization = "BASELINE_1_1"

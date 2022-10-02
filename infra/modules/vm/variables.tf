@@ -3,30 +3,13 @@ variable "compartment_id" {
   type        = string
 }
 
-variable "subnet_id" {
-  description = "ID of subnet in VCN"
-  type        = string
-}
-
-variable "vm_name" {
-  description = "Name of VM"
-  type        = string
-}
-
-variable "public_resource" {
-  description = "True if resource are public"
-  default     = false
-  type        = bool
-}
-
-variable "vm_id_rsa_pub" {
-  description = "SSH public key"
-  type        = string
-  default     = null
-}
-
-variable "vm_instance_shape" {
-  description = "Shape of instance"
-  type        = string
-  default     = "VM.Standard.A1.Flex"
+variable "vms" {
+  description = "VMs details"
+  type = map(object({
+    vm_name           = string
+    vm_instance_shape = string # e.g. "VM.Standard.A1.Flex"
+    vm_id_rsa_pub     = string
+    public_resource   = bool
+    subnet_id         = string
+  }))
 }
