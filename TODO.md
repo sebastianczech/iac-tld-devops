@@ -16,6 +16,7 @@
   - [x] create vm private api
   - [x] adjust tests
   - [x] create dynamic routing gateway
+- [ ] fix integration tests
 - [ ] introduce variables as objects, where network contains subnets, routers, rules etc.
 - [ ] prepare notes (speach)
 - [ ] prepare branches for each step
