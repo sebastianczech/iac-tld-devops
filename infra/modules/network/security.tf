@@ -1,9 +1,10 @@
 resource "oci_core_default_security_list" "vcn_security_list" {
-  manage_default_resource_id = oci_core_vcn.vcn.default_security_list_id
+  for_each                   = var.networks
+  manage_default_resource_id = oci_core_vcn.vcn[each.key].default_security_list_id
   compartment_id             = var.compartment_id
-  display_name               = "${var.vcn_name}-security-list"
+  display_name               = "${each.value.vcn_name}-security-list"
   dynamic "egress_security_rules" {
-    for_each = var.egress_security_rules
+    for_each = each.value.egress_security_rules
     iterator = security_rule
     content {
       protocol         = security_rule.value["protocol"]
@@ -14,7 +15,7 @@ resource "oci_core_default_security_list" "vcn_security_list" {
   }
   dynamic "ingress_security_rules" {
     for_each = {
-      for k, v in var.ingress_security_rules : k => v if v["protocol"] == "6"
+      for k, v in each.value.ingress_security_rules : k => v if v["protocol"] == "6"
     }
     iterator = security_rule
     content {
@@ -30,7 +31,7 @@ resource "oci_core_default_security_list" "vcn_security_list" {
   }
   dynamic "ingress_security_rules" {
     for_each = {
-      for k, v in var.ingress_security_rules : k => v if v["protocol"] == "1"
+      for k, v in each.value.ingress_security_rules : k => v if v["protocol"] == "1"
     }
     iterator = security_rule
     content {
@@ -46,7 +47,7 @@ resource "oci_core_default_security_list" "vcn_security_list" {
   }
   ingress_security_rules {
     protocol    = "all"
-    source      = var.vcn_cidr_block
+    source      = each.value.vcn_cidr_block
     source_type = "CIDR_BLOCK"
     description = "Allow VCN for all protocols"
   }
