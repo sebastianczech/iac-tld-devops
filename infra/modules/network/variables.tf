@@ -13,25 +13,6 @@ variable "networks" {
     egress_security_rules     = list(map(string))
     ingress_security_rules    = list(map(string))
   }))
-  # CIDR VALIDATION
-  validation {
-    condition = alltrue([
-      for network in var.networks : can(cidrnetmask(network.vcn_cidr_block))
-    ])
-    error_message = "Invalid IPv4 CIDR block for VCN"
-  }
-  validation {
-    condition = alltrue([
-      for network in var.networks : can(cidrnetmask(network.subnet_private_cidr_block)) || network.subnet_private_cidr_block == null
-    ])
-    error_message = "Invalid IPv4 CIDR block for subnet private"
-  }
-  validation {
-    condition = alltrue([
-      for network in var.networks : can(cidrnetmask(network.subnet_public_cidr_block)) || network.subnet_public_cidr_block == null
-    ])
-    error_message = "Invalid IPv4 CIDR block for subnet public"
-  }
   # EGRESS VALIDATION
   validation {
     condition = alltrue([

@@ -12,7 +12,7 @@ vcn_name_demo     = "vcn-demo"
 vcn_name_internal = "vcn-internal"
 
 vcn_cidr_block_demo                = "10.1.0.0/16"
-vcn_cidr_block_internal            = "10.2.0.0/16"
+vcn_cidr_block_internal            = "10.2.0.0/36"
 subnet_private_cidr_block_demo     = "10.1.2.0/24"
 subnet_private_cidr_block_internal = "10.2.2.0/24"
 subnet_public_cidr_block_demo      = "10.1.1.0/24"
