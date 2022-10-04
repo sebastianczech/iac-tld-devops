@@ -22,6 +22,7 @@ func TestOutputAfterInfraDeployment(t *testing.T) {
 	}
 	terraformOptions := terraform.WithDefaultRetryableErrors(t, &terraform.Options{
 		TerraformDir:             "../",
+		VarFiles:                 []string{"demo.tfvars"},
 		Logger:                   logger.Terratest,
 		Upgrade:                  true,
 		Lock:                     true,
@@ -30,7 +31,6 @@ func TestOutputAfterInfraDeployment(t *testing.T) {
 		MaxRetries:               3,
 		TimeBetweenRetries:       5 * time.Second,
 	})
-	// commented by purpose only for presentation needs (waiting time to create and destroy infrastructure)
 	defer terraform.Destroy(t, terraformOptions)
 
 	// when
