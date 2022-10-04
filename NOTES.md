@@ -130,6 +130,7 @@ https://medium.com/swlh/tdd-vs-tld-and-what-is-the-minimum-code-coverage-needed-
 
 ## Demo - integration tests - Terratest
 
+* Compare to testing classes and public methods, not attributes and private methods
 * Show Go code with tests infra/tests/module_network_integration_test.go
 * Show infra code for tests in infra/tests/module_network_integration_test/main.tf
 * Show Makefile
