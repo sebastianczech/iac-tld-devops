@@ -1,11 +1,12 @@
 terraform {
-  cloud {
-    organization = "sebastianczech"
+  ### Workspace configuration to use with Terrafor Cloud
+  # cloud {
+  #   organization = "sebastianczech"
 
-    workspaces {
-      name = "iac-tld-devops"
-    }
-  }
+  #   workspaces {
+  #     name = "iac-tld-devops"
+  #   }
+  # }
 
   required_providers {
     oci = {

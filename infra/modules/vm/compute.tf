@@ -45,7 +45,7 @@ resource "oci_core_instance" "vm" {
     subnet_id        = each.value.subnet_id
   }
   metadata = {
-    ssh_authorized_keys = each.value.vm_id_rsa_pub
+    ssh_authorized_keys = coalesce(each.value.vm_id_rsa_pub, file("~/.ssh/id_rsa.pub"))
   }
   shape_config {
     baseline_ocpu_utilization = "BASELINE_1_1"

@@ -1,27 +1,7 @@
 # OCI settings
 
-variable "tenancy_ocid" {
-  description = "Tenancy OCID"
-  type        = string
-}
-
 variable "compartment_id" {
   description = "Compartment ID"
-  type        = string
-}
-
-variable "user_ocid" {
-  description = "User OCID"
-  type        = string
-}
-
-variable "private_key" {
-  description = "Private key created while creating API token"
-  type        = string
-}
-
-variable "fingerprint" {
-  description = "Fingerprint for created API token"
   type        = string
 }
 
@@ -29,6 +9,35 @@ variable "region" {
   description = "OCI region"
   type        = string
 }
+
+# Profile used for OCI command line tool
+
+variable "profile_name" {
+  description = "OCI profile name"
+  type        = string
+}
+
+# Variables used in variable set in Terrafor Cloud
+
+# variable "tenancy_ocid" {
+#   description = "Tenancy OCID"
+#   type        = string
+# }
+
+# variable "user_ocid" {
+#   description = "User OCID"
+#   type        = string
+# }
+
+# variable "private_key" {
+#   description = "Private key created while creating API token"
+#   type        = string
+# }
+
+# variable "fingerprint" {
+#   description = "Fingerprint for created API token"
+#   type        = string
+# }
 
 # VM settings
 
