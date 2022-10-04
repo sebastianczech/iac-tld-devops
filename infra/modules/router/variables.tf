@@ -16,10 +16,4 @@ variable "networks" {
       destination = string
     }))
   }))
-  validation {
-    condition = alltrue([
-      for network in var.networks : length(network.route_rules) > 0 && anytrue([for name, route_rule in network.route_rules : route_rule.destination == "0.0.0.0/0"])
-    ])
-    error_message = "At least 1 rule should be defined for 0.0.0.0/0 destination"
-  }
 }

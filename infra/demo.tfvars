@@ -18,10 +18,6 @@ subnet_private_cidr_block_internal = "10.2.2.0/24"
 subnet_public_cidr_block_demo      = "10.1.1.0/24"
 
 route_rules_demo = {
-  "default" = {
-    destination = "0.0.0.0/0"
-    target      = "InternetGateway"
-  },
   "drg" = {
     destination = "10.0.0.0/8"
     target      = "DynamicRoutingGateway"
