@@ -18,9 +18,9 @@
   - [x] create dynamic routing gateway
 - [x] fix integration tests
 - [x] introduce variables as objects, where network contains subnets, routers, rules etc.
-- [ ] prepare notes (speach)
-- [ ] prepare branches for each step
-- [ ] finish presentation (e.g. include more pictures, include code after each demo, include table with types of tests and tools to use)
+- [x] prepare notes (speach)
+- [x] prepare branches for each step
+- [x] finish presentation (e.g. include more pictures, include code after each demo, include table with types of tests and tools to use)
 
 # More ideas
 

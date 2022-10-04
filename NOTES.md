@@ -1,12 +1,22 @@
 # Notes - Build infrastructure as a code (IaC) using test-later development (TLD) method
 
+Welcome on my presentation about building IaC using TLD method, during which I want to present my thoughts and ideas how to write and test code for our deployments.
+
 ## Agenda
 
 * test pyramid
 * test later development
 * examples and live demo
 
+On the lecture I want to focus on 3 things:
+- describe test pyramid
+- explain what test later development is
+- show practical examples using me code available on my GitHub profile
+
 ## Test Pyramid
+
+In software development there are known and used tests pyramid similar to that which I present on the picture.
+In that approach we have a lot of unit tests, then smaller amount of contract tests, integration tests and at the top - few end to end tests. Why this approach is the best for IaC ? Deploying infrastructure is time consuming, it's not so fast as unit tests or integration test in software development. As higher in test pyramid we are, then the cost (time and money) is higher.
 
 https://www.hashicorp.com/blog/testing-hashicorp-terraform
 
@@ -16,18 +26,22 @@ https://www.hashicorp.com/blog/testing-hashicorp-terraform
 * green - make the test pass
 * blue - refactor
 
+TDD is used in software development for longer time. TDD is built from 3 phases - red, green and blue. When we finish 1 cycle, then the next one starts.
+
 ## Test-Later Development (TLD)
 
 * write code
 * refactor
 * write tests
 
+TLD is similar approach, but without that cycles and without builting tests at the beginning. Test are written , when code is written before and refactored.
+
 ## Why you should use TLD for IaC
 
-* development time
-* learning curve
-* increase productivity
-* code simplicity
+* development time, especially when requirements are not know. There are no iterations.
+* learning curve, especially if people have ops background, what is very common in DevOps world
+* increase productivity, because we focus at first on working code
+* code simplicity, because doing TDD and writing test at first has big impact how the code is designed
 
 https://medium.com/swlh/tdd-vs-tld-and-what-is-the-minimum-code-coverage-needed-f380181d3400
 
@@ -39,11 +53,14 @@ https://medium.com/swlh/tdd-vs-tld-and-what-is-the-minimum-code-coverage-needed-
 ## Demo - unit testing
 
 * Show failing terraform fmt and fix it
+  * terraform fmt -recursive -diff -check
+  * terraform fmt -recursive
 * Show failing terraform validate and fix it
-  
+  * terraform validate (add missing compartment)
+
 ## Testing infrastructure - toolbox
 
-* unit tests: 
+* unit tests:
   * terraform fmt
   * terraform validate
 
@@ -65,13 +82,12 @@ https://medium.com/swlh/tdd-vs-tld-and-what-is-the-minimum-code-coverage-needed-
 ```
 
   * Show the plan is failing
-  * Fix variable value in Terraform cloud
+  * Fix variable value in Terraform variables file
   * Start apply one more time
 * While waiting for infrastructure, login to:
-  * Terraform cloud to show settings (variables)
   * Oracle cloud to show instances and networks with details (routing, security)
 * After infrastructure is ready, check connection via SSH to VM with public IP
-  * Investigate reason why it's not working and show routing rules in Terraform Cloud and Oracle Cloud
+  * Investigate reason why it's not working and show routing rules in Terraform variables file and Oracle Cloud
   * Add variable validation to check default route in infra/modules/router/variables.tf:
 
 ```
@@ -84,13 +100,14 @@ https://medium.com/swlh/tdd-vs-tld-and-what-is-the-minimum-code-coverage-needed-
 ```
 
   * Run plan and show the error message
-  * Fix settings in Terraform Cloud
+  * Fix settings in Terraform variables file
   * Run apply one more time
   * Check connection via SSH
 
 ## Demo - contract testing - resource lifecycle conditions
 
-* Show currently used lifecycle in infra/modules/vm/compute.tf:
+* Start destroying infrastructure
+* Only show currently used lifecycle in infra/modules/vm/compute.tf:
 
 ```
   lifecycle {
@@ -105,9 +122,6 @@ https://medium.com/swlh/tdd-vs-tld-and-what-is-the-minimum-code-coverage-needed-
   }
 ```
 
-* Change values and run plan to show that it's failing
-* Restore previous values
-
 ## Testing infrastructure - toolbox
 
 * contract tests:
@@ -116,11 +130,9 @@ https://medium.com/swlh/tdd-vs-tld-and-what-is-the-minimum-code-coverage-needed-
 
 ## Demo - integration tests - Terratest
 
-* Start destroying infrastructure
 * Show Go code with tests infra/tests/module_network_integration_test.go
 * Show infra code for tests in infra/tests/module_network_integration_test/main.tf
 * Show Makefile
-* Auth in Oracle Cloud
 * Improve tests by checking behaviour of our model:
 
 ```go
@@ -185,7 +197,7 @@ https://medium.com/swlh/tdd-vs-tld-and-what-is-the-minimum-code-coverage-needed-
 
 ## Presentation and code
 
-* https://github.com/sebastianczech/iac-tld-devops
-* https://github.com/sebastianczech/k8s-oci
-* https://github.com/sebastianczech/k8s-oci-tf-cloud
-* https://registry.terraform.io/namespaces/sebastianczech
+* https://github.com/sebastianczech/iac-tld-devops - slides and code
+* https://github.com/sebastianczech/k8s-oci - 1 version of my code to configure infrastructure by Terraform and provision Kubernetes by Ansible
+* https://github.com/sebastianczech/k8s-oci-tf-cloud - 2 version of my code to configure infrastructure by Terraform and provision Kubernetes by Terraform
+* https://registry.terraform.io/namespaces/sebastianczech - modules, which helps to configure infrastructure and provision Kubernetes
