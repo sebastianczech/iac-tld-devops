@@ -1,8 +1,7 @@
 resource "oci_core_vcn" "vcn" {
-  for_each       = var.networks
-  cidr_block     = each.value.vcn_cidr_block
-  compartment_id = var.compartment_id
-  display_name   = each.value.vcn_name
+  for_each = var.networks
+  cidr_block = each.value.vcn_cidr_block
+  display_name = each.value.vcn_name
 }
 
 resource "oci_core_subnet" "subnet_private" {
