@@ -21,6 +21,7 @@
 - [x] prepare notes (speach)
 - [x] prepare branches for each step
 - [x] finish presentation (e.g. include more pictures, include code after each demo, include table with types of tests and tools to use)
+- [ ] record terminal: https://linoxide.com/linux-terminal-recording-tools/
 
 # More ideas
 

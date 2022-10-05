@@ -1,6 +1,6 @@
 # Notes - Build infrastructure as a code (IaC) using test-later development (TLD) method
 
-Welcome on my presentation about building IaC using TLD method, during which I want to present my thoughts and ideas how to write and test code for our deployments.
+My name is Sebastian Czech and welcome on my presentation about building IaC using TLD method, during which I want to present my thoughts and ideas how to write and test code for cloud deployments.
 
 ## Agenda
 
@@ -11,12 +11,22 @@ Welcome on my presentation about building IaC using TLD method, during which I w
 On the lecture I want to focus on 3 things:
 - describe test pyramid
 - explain what test later development is
-- show practical examples using me code available on my GitHub profile
+- and show practical examples using me code available on my GitHub profile
 
 ## Test Pyramid
 
 In software development there are known and used tests pyramid similar to that which I present on the picture.
-In that approach we have a lot of unit tests, then smaller amount of contract tests, integration tests and at the top - few end to end tests. Why this approach is the best for IaC ? Deploying infrastructure is time consuming, it's not so fast as unit tests or integration test in software development. As higher in test pyramid we are, then the cost (time and money) is higher.
+In that approach we have a lot of unit tests, then smaller amount of contract tests, integration tests and at the top - few end to end tests. 
+
+What is the purpose of each type of tests ?
+Unit tests verify individual resources and configurations for expected values. They answer for question: “Does my configuration or plan contain the correct metadata?” 
+Contract tests check that a configuration using a Terraform module passes properly formatted inputs. They answer for question: “Does the expected input to the module match what I think I should pass to it?"
+Integration tests check that a configuration using a Terraform module passes properly formatted inputs. They answer for question: “Does this module or configuration create the resources successfully?”
+End to end tests are checking whole infrastructure. They answer the question, “Can someone use the infrastructure system successfully?”
+
+Why this approach is the best for IaC ? Deploying infrastructure is time consuming, it's not so fast as unit tests or integration test in software development. As higher in test pyramid we are, then the cost (time and money) is higher.
+
+As we know what types of tests we can have then next question is when to do tests ? 
 
 https://www.hashicorp.com/blog/testing-hashicorp-terraform
 
@@ -26,7 +36,7 @@ https://www.hashicorp.com/blog/testing-hashicorp-terraform
 * green - make the test pass
 * blue - refactor
 
-TDD is used in software development for longer time. TDD is built from 3 phases - red, green and blue. When we finish 1 cycle, then the next one starts.
+There are many approaches how and when to do it. One of them is TDD, which is used in software development for longer time. TDD is built from 3 phases - red, green and blue. When we finish 1 cycle, then the next one starts.
 
 ## Test-Later Development (TLD)
 
@@ -34,7 +44,7 @@ TDD is used in software development for longer time. TDD is built from 3 phases 
 * refactor
 * write tests
 
-TLD is similar approach, but without that cycles and without builting tests at the beginning. Test are written , when code is written before and refactored.
+TLD is similar approach, but without that cycles and without builting tests at the beginning. Test are written , when code is ready and it's refactored.
 
 ## Why you should use TLD for IaC
 
@@ -47,6 +57,7 @@ https://medium.com/swlh/tdd-vs-tld-and-what-is-the-minimum-code-coverage-needed-
 
 ## Architecture diagram for simple infrastructure used for demo
 
+* It's enough about theory, let's go to demo section.
 * Describe architecture (networks, routing, virtual machines)
 * Tell about OCI that it's not so popular, but there is 1 reasone why I choose it - I will share it at the end
 
@@ -103,10 +114,10 @@ https://medium.com/swlh/tdd-vs-tld-and-what-is-the-minimum-code-coverage-needed-
   * Fix settings in Terraform variables file
   * Run apply one more time
   * Check connection via SSH
+* Start destroying infrastructure
 
 ## Demo - contract testing - resource lifecycle conditions
 
-* Start destroying infrastructure
 * Only show currently used lifecycle in infra/modules/vm/compute.tf:
 
 ```
