@@ -39,12 +39,13 @@ As we have a lot of types of tests, we have also different approaches when and h
    6. ``make destroy``
 5. Check infrastructure:
    1. ``export COMPARTMENT_ID=`oci iam compartment list | jq '.data[0]["compartment-id"]' | tr -d '"'` && echo $COMPARTMENT_ID``
-   2. ``oci compute instance list --compartment-id $COMPARTMENT_ID``
-   3. ``oci network vcn list --compartment-id $COMPARTMENT_ID``
-   4. ``oci network subnet list --compartment-id $COMPARTMENT_ID``
-   5. ``oci network security-list list --compartment-id $COMPARTMENT_ID``
-   6. ``oci network route-table list --compartment-id $COMPARTMENT_ID``
-   7. ``oci network drg list --compartment-id $COMPARTMENT_ID``
+   2. ``oci compute instance list --compartment-id $COMPARTMENT_ID | jq '.data[]["display-name"]'``
+   3. ``oci network vcn list --compartment-id $COMPARTMENT_ID | jq '.data[] | ."display-name" + ": " + ."cidr-block"'``
+   4. ``oci network subnet list --compartment-id $COMPARTMENT_ID | jq '.data[] | ."display-name" + ": " + ."cidr-block"'``
+   5. ``oci network security-list list --compartment-id $COMPARTMENT_ID | jq '.data[] | ."display-name" + ": " + ."egress-security-rules"[].description + " - " + ."egress-security-rules"[].destination'``
+   6. ``oci network security-list list --compartment-id $COMPARTMENT_ID | jq '.data[] | ."display-name" + ": " + ."ingress-security-rules"[].description + " - " + ."ingress-security-rules"[].source'``
+   7. ``oci network route-table list --compartment-id $COMPARTMENT_ID | jq '.data[] | ."display-name" + ": " + ."route-rules"[].destination'``
+   8. ``oci network drg list --compartment-id $COMPARTMENT_ID | jq '.data[]."display-name"'``
 6. Execute tests:
    1. ``cd tests``
    2. ``make auth``
