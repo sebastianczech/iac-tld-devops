@@ -32,9 +32,20 @@ As we have a lot of types of tests, we have also different approaches when and h
 3. Configure workspace and variables values in Terraform Cloud
 4. Provision infrastructure:
    1. ``cd infra``
-   2. ``terraform plan``
-   3. ``terraform apply -auto-approve``
-5. Execute tests:
+   2. ``make init``
+   3. ``make check``
+   4. ``make plan``
+   5. ``make deploy``
+   6. ``make destroy``
+5. Check infrastructure:
+   1. ``export COMPARTMENT_ID=`oci iam compartment list | jq '.data[0]["compartment-id"]' | tr -d '"'` && echo $COMPARTMENT_ID``
+   2. ``oci compute instance list --compartment-id $COMPARTMENT_ID``
+   3. ``oci network vcn list --compartment-id $COMPARTMENT_ID``
+   4. ``oci network subnet list --compartment-id $COMPARTMENT_ID``
+   5. ``oci network security-list list --compartment-id $COMPARTMENT_ID``
+   6. ``oci network route-table list --compartment-id $COMPARTMENT_ID``
+   7. ``oci network drg list --compartment-id $COMPARTMENT_ID``
+6. Execute tests:
    1. ``cd tests``
    2. ``make auth``
    3. ``make test``
