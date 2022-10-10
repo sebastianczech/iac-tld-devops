@@ -51,6 +51,9 @@ func TestOutputAfterInfraDeployment(t *testing.T) {
 }
 
 func checkSshConnection(ipAddress string) (string, error) {
+	// wait after starting up machine
+	time.Sleep(8 * time.Second)
+
 	// ssh private key
 	homeDir, err := os.UserHomeDir()
 	serverAddress := ipAddress + ":22"
