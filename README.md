@@ -50,3 +50,10 @@ As we have a lot of types of tests, we have also different approaches when and h
    1. ``cd tests``
    2. ``make auth``
    3. ``make test``
+7. Play recordings:
+   1. ``asciinema play records/step-1-unit-test-fmt.cast``
+   2. ``asciinema play records/step-2-unit-test-validate.cast``
+   3. ``asciinema play records/step-3-contract-test-wrong-ip.cast``
+   4. ``asciinema play records/step-4-contract-test-wrong-routing.cast``
+   5. ``asciinema play records/step-5-integration-test.cast``
+   6. ``asciinema play records/step-6-e2e.cast``
