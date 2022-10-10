@@ -41,7 +41,7 @@ func TestErrorWhileProvidingWrongCidrIpAddressForSubnet(t *testing.T) {
 		TerraformDir: "module_network_integration_test/",
 		VarFiles:     []string{"test.tfvars"},
 		Vars: map[string]interface{}{
-			"vcn_cidr_block":            "10.1.0.0/16",
+			"vcn_cidr_block":            "10.1.0.0/36",
 			"subnet_public_cidr_block":  "10.1.1.0/24",
 			"subnet_private_cidr_block": "10.1.2.0/24",
 		},
