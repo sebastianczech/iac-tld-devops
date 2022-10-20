@@ -35,7 +35,7 @@ As we have a lot of types of tests, we have also different approaches when and h
 2. Clone repository:
    1. ``git clone https://github.com/sebastianczech/iac-tld-devops``
    2. ``cd iac-tld-devops``
-3. Configure workspace and variables values in Terraform Cloud
+3. Configure workspace and variables values in Terraform Cloud (e.g. in file ``infra/terraform.tfvars`` with value for variable ``compartment_id``)
 4. Provision infrastructure:
    1. ``cd infra``
    2. ``make init``
@@ -56,7 +56,10 @@ As we have a lot of types of tests, we have also different approaches when and h
    1. ``cd tests``
    2. ``make auth``
    3. ``make test``
-7. Play recordings:
+7. See slides:
+   1. ``git clone https://github.com/sebastianczech/iac-tld-devops``
+   2. ``open slides/index.html``
+8. Play recordings:
    1. ``asciinema play records/step-1-unit-test-fmt.cast``
    2. ``asciinema play records/step-2-unit-test-validate.cast``
    3. ``asciinema play records/step-3-contract-test-wrong-ip.cast``
