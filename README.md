@@ -1,7 +1,5 @@
 # Build infrastructure as a code (IaC) using test-later development (TLD) method
 
-If you are interested in building infrastructure as a code and in testing resources deployed in the cloud, if you want to increase confidence in your changes deployed on production, then I invite you to my lecture. I'm going to present a pyramid of tests in the context of infrastructure and I'm going to show practical examples of how to do unit tests, contract tests and integration tests for resources provisioned by Terraform. During my live demo some tests are going to fail, some of them are going to pass, but I hope that I will not disappoint and presented material will be useful while building your infrastructure. 
-
 ## Presentation summary
 
 Using test-driven development (TDD) approach in software development is broadly used in industry for many years. When we are talking about infrastructure, it's not as obvious and frequently used approach, but when we take a look on [pyramid of tests](https://www.hashicorp.com/blog/testing-hashicorp-terraform) and think about tools available for infrastructure as a code (IaC), then we can propose multiple approaches to do:
