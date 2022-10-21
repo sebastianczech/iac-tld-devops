@@ -1,7 +1,5 @@
 # Build infrastructure as a code (IaC) using test-later development (TLD) method
 
-If you are interested in building infrastructure as a code and in testing resources deployed in the cloud, if you want to increase confidence in your changes deployed on production, then I invite you to my lecture. I'm going to present a pyramid of tests in the context of infrastructure and I'm going to show practical examples of how to do unit tests, contract tests and integration tests for resources provisioned by Terraform. During my live demo some tests are going to fail, some of them are going to pass, but I hope that I will not disappoint and presented material will be useful while building your infrastructure. 
-
 ## Presentation summary
 
 Using test-driven development (TDD) approach in software development is broadly used in industry for many years. When we are talking about infrastructure, it's not as obvious and frequently used approach, but when we take a look on [pyramid of tests](https://www.hashicorp.com/blog/testing-hashicorp-terraform) and think about tools available for infrastructure as a code (IaC), then we can propose multiple approaches to do:
@@ -11,6 +9,14 @@ Using test-driven development (TDD) approach in software development is broadly 
 - end-to-end tests using also [``terratest``](https://terratest.gruntwork.io/)
 
 As we have a lot of types of tests, we have also different approaches when and how to write them. In case of TDD there is common cycle - writing failing test (red phase), implementing code which causes that tests is succeeding (green phase) and adjusting code (refactor phase). For infrastructure sometimes it's very hard to write tests before implementation e.g. validation rule variable can be created after variable is defined, not before, that's why in many cases for IaC we can talk about test-later development (TLD) method.
+
+## Links
+
+* [Testing HashiCorp Terraform](https://www.hashicorp.com/blog/testing-hashicorp-terraform)
+* [Test-Driven Development (TDD) for Infrastructure](https://www.hashicorp.com/resources/test-driven-development-tdd-for-infrastructure)
+* [Testing Infrastructure as Code on Localhost](https://www.hashicorp.com/resources/testing-infrastructure-as-code-on-localhost)
+* [Design by Contract in Terraform](https://betterprogramming.pub/design-by-contracts-in-terraform-63467a749c1a)
+* [TDD vs TLD and what is the minimum code coverage needed](https://medium.com/swlh/tdd-vs-tld-and-what-is-the-minimum-code-coverage-needed-f380181d3400)
 
 ## Demo
 
@@ -29,7 +35,7 @@ As we have a lot of types of tests, we have also different approaches when and h
 2. Clone repository:
    1. ``git clone https://github.com/sebastianczech/iac-tld-devops``
    2. ``cd iac-tld-devops``
-3. Configure workspace and variables values in Terraform Cloud
+3. Configure workspace and variables values in Terraform Cloud (e.g. in file ``infra/terraform.tfvars`` with value for variable ``compartment_id``)
 4. Provision infrastructure:
    1. ``cd infra``
    2. ``make init``
@@ -50,7 +56,10 @@ As we have a lot of types of tests, we have also different approaches when and h
    1. ``cd tests``
    2. ``make auth``
    3. ``make test``
-7. Play recordings:
+7. See slides:
+   1. ``git clone https://github.com/sebastianczech/iac-tld-devops``
+   2. ``open slides/index.html``
+8. Play recordings:
    1. ``asciinema play records/step-1-unit-test-fmt.cast``
    2. ``asciinema play records/step-2-unit-test-validate.cast``
    3. ``asciinema play records/step-3-contract-test-wrong-ip.cast``
