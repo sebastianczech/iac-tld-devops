@@ -1,7 +1,6 @@
 # Notes - Build infrastructure as a code (IaC) using test-later development (TLD) method
 
-Hi everyone. My name is Sebastian Czech and welcome on my presentation about building IaC using TLD method.
-Today I want to present my thoughts and ideas how to write and test code for cloud deployments.
+Hi everyone. I'm Sebastian Czech and welcome on my presentation about building IaC using TLD method.
 
 ## Agenda
 
@@ -9,38 +8,27 @@ Today I want to present my thoughts and ideas how to write and test code for clo
 * test later development
 * examples and live demo
 
-On the lecture I want to focus on 3 things:
-- describe test pyramid
-- explain what test later development is
-- and show practical examples using me code available on my GitHub profile
+Today I want to:
+- talk about test pyramid, describe test types
+- explain what test later development is and
+- do live demo, during which I will show practical examples of test listed in the agenda
 
 ## Test Pyramid
 
-In software development there are known and used classical test pyramid, inverted test pyramid or test diamond.
-For infrastracture classical test pyramid, similar to that presented on the picture, seems the best one.
+So let's start. In software development there are known and used classical test pyramid, inverted test pyramid or test diamond. For infrastracture classical test pyramid, similar to that presented on the picture, seems the best one.
 Why ? I'm going to tell in a moment, but before let's take a look on types of tests, which are visible here.
 What is the purpose of each type of tests ?
 
-Unit tests verify individual resources and configurations for expected values. They answer for question: “Does my configuration or plan contain the correct metadata?” 
-Contract tests check that a configuration using a Terraform module passes properly formatted inputs. They answer for question: “Does the expected input to the module match what I think I should pass to it?"
-Integration tests check that a configuration using a Terraform module passes properly formatted inputs. They answer for question: “Does this module or configuration create the resources successfully?”
-End to end tests are checking whole infrastructure. They answer the question, “Can someone use the infrastructure system successfully?”
+Unit tests answer questions: “Does my configuration contain correct metadata?”, "Were all required attributes for resources defined?".
+Contract tests check "if expected input data (variables values) match what I think I should pass to it?", "e.g. if we defined variable to have IP address of the subnet as input value, do we check if we passed string value in correct format?".
+Integration tests provide answer questions: “Does module create the resources successfully?”, "Is behaviour of the module correct?"
+End to end tests are checking whole infrastructure. They answer the question, “Can someone use the infrastructure system successfully?”, "If I need to configure application, do I have everything what is required e.g. opened and working SSH port to execute Ansible playbook?"
 
-Why classical test pyramid is the best for IaC ? Deploying infrastructure is time consuming, it's not so fast as unit tests or integration test in software development. As higher in test pyramid we are, then the cost (time and money) is higher.
+Now when we know what is the purpose of every test type, it's easier to explain why classical test pyramid is the best for IaC ? Deploying infrastructure is time consuming, it costs money - as higher in test pyramid we are, then the cost (time and money) is higher.
 
-As we know what types of tests we can have then next question is when to do tests ? 
+Ok, I hope, that part is more or less clear and let's go to second slide and next question - when to do tests ? 
 
 https://www.hashicorp.com/blog/testing-hashicorp-terraform
-
-## Test-Driven Development (TDD)
-
-* red - write failing test
-* green - make the test pass
-* blue - refactor
-
-There are many approaches how and when to do it. One of them is TDD, which is built from 3 phases - red, green and blue. 
-We are starting from preparing test, which fails. Then we implement required feature in code to make tests passing. At the end we are refactoring code.
-When we finish 1 cycle, then the next one starts.
 
 ## Test-Later Development (TLD)
 
@@ -48,16 +36,29 @@ When we finish 1 cycle, then the next one starts.
 * refactor
 * write tests
 
-TLD is similar approach, but without that cycles and without builting tests at the beginning. Test are written, when code is ready and it's refactored. 
+TLD is the first approach about which I'm going to speak. It's very straight forward method. 
+We starting from writing code, which needs to work. When it's ready, we are refactor it, clean it, optimize it.
+The last stage is preparing test, when code is ready and it's refactored.
 
-When we take into account argument about time needed to deploy infrastructure, then that approach seems more reasonable. 
-What are other reasons to use TLD for IaC ?
+If somebody asks - what is the reason to prepare test after writing code ? I have at least 2 answers:
+- tests increase confidence, that what we are delivering works
+- when in future other person will take our code and he or she will add / change something, then using that tests we can check if we haven't broken something
+
+## Test-Driven Development (TDD)
+
+* red - write failing test
+* green - make the test pass
+* blue - refactor
+
+Other approach, TDD, is well-known and used in software development for many years. TDD is built from 3 phases - red, green and blue. The most characteristic for that method is how we start our work - from preparing test, which fails. Then we implement required feature in code to make tests passing. At the end we are refactoring code.
+When we finish 1 cycle, then the next one starts. We have many iterations until we deliver working piece of code.
 
 ## Why you should use TLD for IaC
 
-* development time, especially when requirements are not know. There are no iterations.
+In my opinion there are few factors why TLD is better for IaC:
+* development time, because there are no iterations
 * learning curve, especially if people have ops background, what is very common in DevOps world
-* increase productivity, because we focus at first on working code
+* increase productivity, because we focus at first on working code, not on tests
 * code simplicity, because doing TDD and writing test at first has big impact how the code is designed
 
 https://medium.com/swlh/tdd-vs-tld-and-what-is-the-minimum-code-coverage-needed-f380181d3400
@@ -70,11 +71,11 @@ https://medium.com/swlh/tdd-vs-tld-and-what-is-the-minimum-code-coverage-needed-
 
 ## Demo - unit testing
 
+* Show failing terraform validate and fix it
+  * terraform validate (add missing compartment)
 * Show failing terraform fmt and fix it
   * terraform fmt -recursive -diff -check
   * terraform fmt -recursive
-* Show failing terraform validate and fix it
-  * terraform validate (add missing compartment)
 
 ## Testing infrastructure - toolbox
 
